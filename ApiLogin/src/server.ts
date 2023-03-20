@@ -2,10 +2,13 @@ import express, { Request, Response } from "express";
 import path from "path"; 
 import mustache from 'mustache-express'
 import dotenv from 'dotenv'
+import { mongoConnect } from './database/mongo'
 import apiRoutes from './router/api'
 import cor from 'cors'
 
 dotenv.config()
+
+mongoConnect()
 
 const server = express()
 
