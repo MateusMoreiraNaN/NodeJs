@@ -5,21 +5,11 @@ import User from '../models/User'
 export const createLogin = async (req: Request, res: Response)=>{
     let { email, password } = req.body
 
-    if(email){
-        let newLogin = new User()
+    let newLogin = await User.create({
+        email, password
+    })
 
-        newLogin.email = email
-
-        if(password){
-            newLogin.password = password
-        }
-
-        await newLogin.save()
-    }
-
-
-
-    res.json({email, password })
+    res.json({id: newLogin.id, email, password })
 
     
 

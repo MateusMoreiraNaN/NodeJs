@@ -1,9 +1,9 @@
-import { connect, ConnectOptions } from 'mongoose'
-import dotenv from 'dotenv'
+import { connect, ConnectOptions } from "mongoose";
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
-export const mongoConnect = async () =>{
+export const mongoConnect  = async () => {
     try{
         console.log('Conectando ao MongoDB...');
         await connect(process.env.MONGO_URL! as string, {
