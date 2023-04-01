@@ -22,17 +22,18 @@ export const all = async (req: Request, res: Response)=>{
 }
 
 export const update = async (req: Request, res: Response)=>{
-    let _id = req.params._id
+    let id = req.params.id
+    let { email, password } = req.body
 
-    let newUpdate = await User.findOne({_id})
+    let newUpdate = await User.findOne({_id: id})
     if(newUpdate){
-        if(req.body.email){
-            newUpdate.email = 'email'
-        }if(req.body.password){
-            newUpdate.password = 'password'
+        if(email && password){
+            newUpdate.email = email
+            newUpdate.password = password
+
+            await newUpdate.save()
         }
 
-        await newUpdate.save()
 
         res.json({item: newUpdate})
     }else{

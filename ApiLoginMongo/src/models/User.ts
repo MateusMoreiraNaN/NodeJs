@@ -1,13 +1,13 @@
 import { Schema, model, Model, connection, ObjectId } from "mongoose";
 type UserType = {
-    _id:  ObjectId
+    //_id:  ObjectId
     email: string,
     password: string
     
 };
 
 const schema = new Schema<UserType>({
-    _id: Object,
+    //_id: Object,
     email: String,
     password: String
   });
