@@ -44,9 +44,9 @@ export const update = async (req: Request, res: Response)=>{
 }
 
 export const remove = async (req: Request, res: Response)=>{
-    let { _id } = req.params
+    let id = req.params.id
 
-    let removeId = await User.findOne({_id})
+    let removeId = await User.findOne({_id: id})
 
     if(removeId){
         await removeId.deleteOne()
