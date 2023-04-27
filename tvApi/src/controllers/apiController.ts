@@ -9,14 +9,17 @@ export const filmAll = async (req: Request, res: Response)=>{
 } 
 
 export const filmAdd = async (req: Request, res: Response)=>{
-    let name: string = req.body.name
-    let note: number = req.body.note
+    let { name } = req.body
+    let { note } = req.body
 
     if(name && note){
         let newTv = await Tv.create({
             name: req.body.name,
             note: req.body.note
+
         })
+
+       
 
         res.status(201).json({item: newTv})
     }else{

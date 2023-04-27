@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../database/pg";
+import { sequelize } from "../instances/pg";
 
 export interface TvInstance extends Model{
     id: number
@@ -15,9 +15,10 @@ export const Tv = sequelize.define<TvInstance>('Tv',{
     },
     name: {
         type: DataTypes.STRING
+        
     },
     note:{
-        type: DataTypes.DOUBLE
+        type: DataTypes.INTEGER
 
     }
 },{
