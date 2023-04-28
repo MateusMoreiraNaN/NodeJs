@@ -49,6 +49,17 @@ export const deleteId = async (req: Request, res: Response)=>{
 }
 
 export const edit = async (req: Request, res: Response)=>{
+    let { id } = req.params
     
+    let categoria = await Category.findByPk(id)
+    if(categoria != undefined){
+        if(req.body.name){
+            categoria.name = req.body.name
+        }
+
+        res.render("admin/categories/edit", {categoria:categoria})
+    }else{
+        res.redirect("/admin/categories/index")
+    }
 }
 
