@@ -17,4 +17,7 @@ export const Category = sequelize.define<CategoryInstance>("category",{
         type: DataTypes.INTEGER,
         allowNull: false
     }
+},{
+    tableName: 'category',
+    timestamps: false
 })

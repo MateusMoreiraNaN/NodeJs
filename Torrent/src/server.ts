@@ -3,6 +3,7 @@ import path from "path";
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import RouterFilms from './routes/films'
+import RouterCategory from './routes/filmsCategory'
 
 
 dotenv.config()
@@ -18,6 +19,7 @@ server.use(bodyParser.urlencoded({extended: false}))
 server.use(bodyParser.json())
 
 server.use(RouterFilms)
+server.use(RouterCategory)
 
 server.use((req: Request, res: Response)=>{
     res.status(404).send('Página não encontrada!');
