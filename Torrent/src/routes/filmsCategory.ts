@@ -5,5 +5,10 @@ const router = Router()
 
 router.get('/admin/categories/new', filmsCategory.admin)
 router.post('/categories/save', filmsCategory.save)
+router.get('/admin/categories/index', filmsCategory.adminCategory)
+router.post('/categories/delete', filmsCategory.deleteId)
+router.post('/categories/update')
+router.get('/admin/categories/edit/:id')
+router
 
 export default router
