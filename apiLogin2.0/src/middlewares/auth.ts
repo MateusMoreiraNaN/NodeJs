@@ -5,7 +5,7 @@ import { buffer } from "stream/consumers"
 import JWT from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import { decode } from "punycode"
-//subir para o git
+
 dotenv.config()
 
 export const apiAuth = {
